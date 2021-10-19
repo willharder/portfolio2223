@@ -79,12 +79,22 @@
     #mayo{
       padding: 20px;
       justify-self: center;
+margin-left:200px;
+ border:4px solid maroon;
+					
+   
       /*justify-content: center;
       align-items: center;
       display: block;*/
 
     }
     #plane{
+			 padding: 20px;
+			     
+						 border:4px solid maroon;
+     
+margin-left:100px;
+
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -274,11 +284,14 @@
     .futureplansfull {
       display: flex;
       flex-wrap: wrap;
+
+
     }
     
     .futureplanspics {
   position: relative;
   width: 50%;
+	
 }
 
 .image {
@@ -318,6 +331,8 @@
 
 /* Style for second overlap screen */
 .futureplanspics2 {
+	
+
   position: relative;
   width: 50%;
 }
