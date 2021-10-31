@@ -21,8 +21,8 @@ function setup() {
 
 function draw() {
    background(random(400), random(100), random(100));
-  for (var y = 0; y < height ; y += 145) {
-    for (var x = 0; x < width; x += 145) {
+  for (var y = 0; y < height ; y += height/2.75) {
+    for (var x = 0; x < width; x += width/2.75) {
       Dice = new Die(y+width/160, x+width/160);
       Dice.show();
       Dice.roll();
