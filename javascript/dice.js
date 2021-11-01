@@ -6,7 +6,7 @@ var b1;
 var b2;
 var b3;
 var diam;
-let average = 1;
+let average;
 let totalRolls = 0;
 let grandTotal = 0;
 let largestRoll = 0;
