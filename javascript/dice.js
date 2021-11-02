@@ -10,40 +10,55 @@ let average;
 let totalRolls = 0;
 let grandTotal = 0;
 let largestRoll = 0;
+let winVar = 34; 
 
 function setup() {
- 
   createCanvas(400, 400); //height/width must equal
   noLoop();
   colorMode(HSB);
   diam = width / 20;
+  
 }
 
 function draw() {
-   background(random(400), random(100), random(100));
-  for (var y = 0; y < height ; y += height/2.75) {
-    for (var x = 0; x < width; x += width/2.75) {
-      Dice = new Die(y+width/160, x+width/160);
+  background(random(400), random(100), random(100));
+  for (var y = 0; y < height; y += height / 2.75) {
+    for (var x = 0; x < width; x += width / 2.75) {
+      b1 = random(400);
+      b2 = random(100);
+      b3 = random(100);  
+      Dice = new Die(y + width / 160, x + width / 160);
       Dice.show();
       Dice.roll();
     }
   }
+  
   strokeWeight(2);
   textSize(width / 25);
   fill("white");
-  text('Total: ' + total, width/64, width/1.45);
-  text('Average: ' + round(average, 2), width/64, width/3);
-  text('Grand Total: ' + grandTotal, width/1.6, width/3);
-  text('Largest Roll: ' + largestRoll, width/1.6, width/1.45);
+  text("Total: " + total, width / 20, width / 1.45);
+  text("Average: " + round(average, 2), width / 20, width / 3);
+  text("Grand Total: " + grandTotal, width / 1.55, width / 3);
+  text("Largest Roll: " + largestRoll, width / 1.4, width / 1.45);
+  text("Total Rolls: " + totalRolls, width/2.7, height/3);
+  
+  if(total===winVar){
+    fill("gold");
+    textSize(80);
+    text("WINNER!!!!", width/256, width/1.8);
+  }
+  else{
+    text("Roll a 34 for the Win!", width/3.2, width/1.45);
+  }
 }
 
 function mousePressed() {
   background(random(400), random(100), random(100));
   totalRolls++;
-  grandTotal=grandTotal+total;
-  average=grandTotal/totalRolls;
-  if(total>largestRoll){
-    largestRoll=total;
+  grandTotal = grandTotal + total;
+  average = grandTotal / totalRolls;
+  if (total > largestRoll) {
+    largestRoll = total;
   }
   total = 0;
   redraw();
@@ -57,7 +72,7 @@ class Die {
     total = total + this.ranNum;
   }
   roll() {
-    fill(random(400), random(100), random(100));
+    fill(400,0,100);
     if (this.ranNum == 1) {
       ellipse(this.x + height / 8, this.y + width / 8, diam, diam); //dice 1
     }
@@ -95,7 +110,7 @@ class Die {
   show() {
     strokeWeight(1);
     stroke("black");
-    fill(random(400), random(100), random(100));
-    rect(this.x, this.y, height / 4, width / 4, width/16);
+    fill(b1,b2,b3);
+    rect(this.x, this.y, height / 4, width / 4, width / 16);
   }
 }
